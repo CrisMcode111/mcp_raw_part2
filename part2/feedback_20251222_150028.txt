@@ -1,0 +1,38 @@
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/agent_client.py
+suggestions for improvement:
+- The provided code snippet focuses solely on the client side and how to communicate with an MCP server, neglecting the critical requirement of building your own MCP server with custom tools and composing them with external servers.
+- The code only shows how to call a tool named 'orchestrator.solve' which is not sufficient to address the prompt requirement to expose custom tools through a personal MCP server.
+- The example only shows calling one tool, whereas the prompt mentions using multiple servers in orchestration.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/arxiv_server.py
+suggestions for improvement:
+- The code lacks implementation of an MCP server. It needs to be exposed through a server like Flask or FastAPI.
+- The code only defines a tool but doesn't show how it integrates with an agentic client that uses the tool in combination with external servers.
+- The provided function does not have docstrings or schemas.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/notes_server.py
+suggestions for improvement:
+- The provided code only defines a single tool function (`notes.write`) and a `TOOLS` dictionary. It does not implement a full MCP server, which is a core requirement.
+- The code does not address the requirements of composing the custom server with external servers, planning with an LLM, or runtime options for GroqCloud or Ollama.
+- The `notes.write` tool lacks clear input/output schemas, as required by the chapter.
+- Consider adding input validation to `notes.write` to improve security (e.g., path sanitization).
+- The return value of `notes.write` is a dictionary containing the status and path. This is good, but it should also contain information about any errors or warnings encountered during execution.
+Correctness: 10.0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/orchestrator_server.py
+suggestions for improvement:
+- Consider adding error handling within the `orchestrator_solve` tool to gracefully handle potential failures during tool calls. This will improve the robustness of the system.
+- Implement input validation and sanitization for user-provided input to mitigate potential security risks, such as prompt injection attacks when using the LLM.
+- Add logging to track the execution flow and debug issues more effectively.
+- Improve the simplicity of the variable injection mechanism. A more robust and safer approach could involve a dedicated templating engine or a limited set of allowed substitutions.
+Correctness: 85%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/raw_server.py
+suggestions for improvement:
+- Consider adding explicit type hints for all variables to improve readability.
+- Add logging for debugging purposes, especially when the server encounters an exception.
+- Implement error handling and validation to ensure input data conforms to expected schema.
+Correctness: 100%
+-----

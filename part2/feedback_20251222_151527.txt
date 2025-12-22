@@ -1,0 +1,36 @@
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/agent_client.py
+suggestions for improvement:
+- The provided code only shows a client connecting to an MCP server and calling a tool. It doesn't implement the core requirements of the mini-project, specifically the creation of a custom MCP server with custom tools, the composition of multiple servers (including the custom one), and the integration of an LLM for planning.
+- The code lacks the implementation of the MCP server itself and the definition of the custom tools. Without these, the code cannot fulfill the project's main objective.
+- Consider adding the implementation of custom tools that provide actual value based on the user's needs or a specific domain, such as domain-specific cleanup, API glue, or an opinionated decision step.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/arxiv_server.py
+suggestions for improvement:
+- This code snippet only defines a single tool and a dictionary to store it. To fulfill the requirements of the mini-project, you need to create an actual MCP server (e.g., using FastAPI or Flask) that exposes these tools via an API endpoint.
+- The provided function 'search' lacks docstrings and schema definitions for input/output as required by the instructions.
+- The code doesn't integrate with external MCP servers, or implement any planning and robustness logic. It only defines a placeholder for a tool.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/notes_server.py
+suggestions for improvement:
+- This is just a function, it does not constitute an MCP server with exposed tools. The code needs to implement a server (e.g., using FastAPI or Flask) that exposes the `write` function as a tool.
+- The provided code does not handle any error cases or validate inputs. This should be addressed to improve the reliability and security of the tool.
+- The code doesn't include the required schemas for input/output of the tool. This is important for proper integration with an LLM planner and other MCP servers.
+- The code doesn't demonstrate any agentic client that discovers and uses the tool in conjunction with external MCP servers. It only implements a single, simple tool.
+- The code does not include any env configuration to switch between GroqCloud and Ollama.
+Correctness: 10.0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/orchestrator_server.py
+suggestions for improvement:
+- Consider adding error handling within the `orchestrator_solve` tool to gracefully handle tool call failures and replan if necessary, enhancing robustness.
+- Implement more robust input validation for the orchestrator_solve tool to prevent unexpected errors or security vulnerabilities.
+- Use a more secure method for storing and accessing API keys (e.g., environment variables or a secrets manager) instead of hardcoding them directly in the code, especially for the GroqCloud integration.
+Correctness: 90%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/raw_server.py
+suggestions for improvement:
+- Consider using a more robust schema validation library to ensure inputs conform to the defined schemas, rather than relying on `.get()` with default values in `call_tool()` (Option B).
+- The code could benefit from more comprehensive error handling, especially within the tool functions themselves. For instance, handle potential `TypeError` or `ValueError` exceptions within `clean_citation` and `texture_advice` more gracefully.
+Correctness: 100%
+-----
