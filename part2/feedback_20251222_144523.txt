@@ -1,0 +1,27 @@
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/agent_client.py
+suggestions for improvement:
+- The code does not fulfill the requirements of the mini-project, which includes creating a custom MCP server with at least one or two non-trivial tools, composing the server with external servers from Part 1, enabling LLM-based planning, and supporting GroqCloud or Ollama. The provided code only demonstrates a client that interacts with a 'raw_server.py'. It does not include the server implementation, custom tools, LLM integration, or composition with other servers, therefore the client is useless without all the other components implemented.
+- The code assumes the existence of a `raw_server.py` and interacts with it using `stdio_client`. While this interaction itself is fine, it's not directly relevant to the core project requirements without the server and its tools being implemented according to the chapter's instructions.
+- The provided code includes only client-side code (demonstrating usage of a custom server) with 2 calls `raw.clean_citation` and `raw.texture_advice`. This is not sufficient to assess correctness against the overall goals.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/arxiv_server.py
+suggestions for improvement:
+- This code only defines a search tool and makes it available in a dictionary. It doesn't implement an MCP server, doesn't integrate with external servers, doesn't use an LLM for planning, and doesn't provide an agentic client. It only provides a basic tool. Therefore, it does not fulfill the requirements of the prompt.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/notes_server.py
+suggestions for improvement:
+- The provided code only implements a single tool. It should implement at least one, ideally two, custom tools.
+- The tool provided is very basic. The chapter specifies that the tool should add real value, such as a transformation, enrichment, automation, or integration with a service/API you care about.
+- The code lacks the MCP server setup and the agentic client that discovers and uses tools from both the custom server and external servers. The focus is solely on the tool implementation itself. The task is about building an MCP server and client that composes tools, not just creating a single function.
+- Consider adding input/output schema definitions and docstrings to improve clarity and integration with MCP.
+- The security score is low because arbitrary file writes can be dangerous. More robust checks/sanitization might be necessary in a real-world application to prevent path traversal vulnerabilities, although this is out of scope for MCP itself.
+- The code lacks any error handling. Consider adding try-except blocks to gracefully handle potential exceptions during file writing.
+Correctness: 20%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/raw_server.py
+suggestions for improvement:
+- Consider using a more robust schema definition (e.g., Pydantic) for better validation and documentation, especially for more complex input/output types.
+Correctness: 100%
+-----
