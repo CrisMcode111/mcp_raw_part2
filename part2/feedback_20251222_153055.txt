@@ -1,0 +1,34 @@
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/agent_client.py
+suggestions for improvement:
+- Consider breaking the large file into smaller, more manageable modules for improved organization and maintainability.
+- Add more comprehensive error handling, especially around external server calls, to enhance robustness.
+- Implement input validation and sanitization for custom tools to mitigate potential security risks.
+Correctness: 100%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/arxiv_server.py
+suggestions for improvement:
+- This code snippet only defines a single, very simple tool. It does not address the core requirements of the mini-project, which involves creating a MCP server with custom tools, composing it with external servers, using an LLM for planning, and supporting runtime options like GroqCloud or Ollama. It also doesn't provide any server infrastructure, agentic client code, or integration with external MCP servers.
+- The provided search tool lacks any real integration with an external source such as Arxiv, as suggested by the tool name. It always returns the same static results.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/notes_server.py
+suggestions for improvement:
+- The provided code only implements a single tool that writes content to a file. It does not create an MCP server, nor does it include the necessary components for agentic client interaction, external server integration, planning, robustness, or runtime options as outlined in the requirements.
+- Missing essential parts: MCP server setup, tool schema definitions, client-side agent logic, discovery mechanism, integration with external MCP servers, and LLM interaction for planning.
+- Security: The provided function has limited security considerations. Depending on the broader context, it might be susceptible to path injection attacks if the 'path' parameter is not carefully validated.
+Correctness: 20%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/orchestrator_server.py
+suggestions for improvement:
+- Consider adding more robust error handling within the `orchestrator_solve` function, particularly when calling external tools. Handle potential exceptions and re-planning scenarios.
+- Implement input validation and sanitization for the `orchestrator_solve` tool and the LLM prompts to prevent injection attacks and ensure data integrity.
+- While the code includes async context managers, it could benefit from more comprehensive resource management to ensure proper cleanup in case of errors or interruptions.
+Correctness: 100%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/raw_server.py
+suggestions for improvement:
+- Consider adding more comprehensive error handling within the tool functions (clean_citation, texture_advice) to gracefully handle unexpected inputs or potential issues during processing.
+- The simulated data in `clean_citation` could be replaced with actual logic to make the tool more realistic and useful.
+- Include a basic client example to showcase how the server is used with a LLM.
+Correctness: 100%
+-----
