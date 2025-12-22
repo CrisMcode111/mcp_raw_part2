@@ -1,0 +1,28 @@
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/agent_client.py
+suggestions for improvement:
+- This code doesn't implement a custom MCP server as requested. It only defines a mock agent that calls predefined tools.
+- The code needs to include the implementation of at least 1-2 custom tools.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/arxiv_server.py
+suggestions for improvement:
+- This code only defines a simple search tool and a dictionary to store it. It doesn't create an MCP server, doesn't integrate with external servers, doesn't use an LLM for planning, and doesn't provide an agentic client as requested by the prompt. The code itself is functional but completely unrelated to the task.
+- The code lacks any of the required features such as MCP server creation, external server integration, LLM planning, agentic client implementation, and custom tool documentation and schema definition. The code does not address the task.
+Correctness: 0%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/notes_server.py
+suggestions for improvement:
+- This only provides a single tool that writes to a file. While this is a start, it only fulfills a small part of the requirements.
+- The provided code is missing the MCP server implementation, the agentic client that discovers and uses tools from multiple servers (including the one defined here and external ones), LLM integration for planning, and support for GroqCloud or Ollama.
+- Consider using a framework like FastAPI or Flask to build the MCP server and expose the 'write' tool as an API endpoint.
+- Implement proper input validation and error handling within the `write` function to improve robustness and security.
+- The code lacks any mechanism for defining schemas or docstrings, which are crucial for MCP interaction. Implement this.
+Correctness: 20%
+-----
+URL: https://github.com/CrisMcode111/mcp_raw_part2/blob/main/part2/raw_server.py
+suggestions for improvement:
+- While the provided code defines two custom tools, it only simulates the MCP server. The task requires the creation of an actual MCP server, not just the functions that would be exposed by one. You need to include the server setup (e.g., using Flask or FastAPI) to expose these tools via an API.
+- The code currently lacks input schema validation. While docstrings are present, defining and enforcing input schemas (e.g., using pydantic) will improve robustness and allow for automated documentation.
+- The provided tools seem somewhat simplistic. Consider adding more sophisticated logic or connecting to external APIs to better fulfill the 'non-trivial tool' requirement.
+Correctness: 70%
+-----
